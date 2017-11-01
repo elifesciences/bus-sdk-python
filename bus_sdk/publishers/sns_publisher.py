@@ -1,6 +1,6 @@
 try:
     import boto3
-except ModuleNotFoundError:
+except ImportError:
     # boto3 not yet available, may happen in initial install of bus_sdk package
     pass
 
