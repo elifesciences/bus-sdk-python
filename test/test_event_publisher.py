@@ -1,5 +1,5 @@
-from bus_sdk import get_publisher
-from bus_sdk.publishers import SNSPublisher
+from elife_bus_sdk import get_publisher
+from elife_bus_sdk.publishers import SNSPublisher
 
 
 def test_it_will_receive_default_name_if_name_is_not_supplied(valid_config):

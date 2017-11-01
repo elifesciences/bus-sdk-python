@@ -1,11 +1,11 @@
 try:
     import boto3
 except ImportError:
-    # boto3 not yet available, may happen in initial install of bus_sdk package
+    # boto3 not yet available, may happen in initial install of elife_bus_sdk package
     pass
 
-from bus_sdk.messages import Message
-from bus_sdk.publishers.event_publisher import EventPublisher
+from elife_bus_sdk.events import Event
+from elife_bus_sdk.publishers.event_publisher import EventPublisher
 
 
 class SNSPublisher(EventPublisher):
@@ -14,7 +14,7 @@ class SNSPublisher(EventPublisher):
     def __init__(self, region: str = '', subscriber: str = '', name: str = '',
                  env: str = '', **overrides) -> None:
         """
-        Allows publication of `Message` objects to a target AWs SNS Topic
+        Allows publication of `Message` objects to a target AWS SNS Topic
 
         :param region: str
         :param subscriber: str
@@ -43,11 +43,11 @@ class SNSPublisher(EventPublisher):
                                                                         name=name,
                                                                         env=env)
 
-    def publish(self, message: Message) -> dict:
+    def publish(self, event: Event) -> dict:
         """
-        Publishes a JSON representation of `Message` object to the target AWS SNS Topic.
+        Publishes a JSON representation of `Event` object to the target AWS SNS Topic.
 
-        :param message: :class: `Message`
+        :param event: :class: `Event`
         :return: dict:
 
         example return value:
@@ -64,4 +64,4 @@ class SNSPublisher(EventPublisher):
             }
         }
         """
-        return self._resource.Topic(self._arn).publish(Message=message.to_json())
+        return self._resource.Topic(self._arn).publish(Message=event.to_json())

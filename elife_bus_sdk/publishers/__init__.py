@@ -1,6 +1,6 @@
-from bus_sdk.publishers.event_publisher import EventPublisher
-from bus_sdk.publishers import sns_publisher
-from bus_sdk.publishers.sns_publisher import SNSPublisher
+from elife_bus_sdk.publishers.event_publisher import EventPublisher
+from elife_bus_sdk.publishers import sns_publisher
+from elife_bus_sdk.publishers.sns_publisher import SNSPublisher
 
 
 # list of publisher classes you want to make available

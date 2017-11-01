@@ -1,4 +1,4 @@
-from bus_sdk.publishers import (
+from elife_bus_sdk.publishers import (
     EventPublisher,
     get_publisher_types
 )

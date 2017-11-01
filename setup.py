@@ -1,6 +1,6 @@
 from setuptools import setup
 
-import bus_sdk
+import elife_bus_sdk
 
 
 with open('requirements.txt') as f:
@@ -8,10 +8,10 @@ with open('requirements.txt') as f:
 
 
 setup(
-    name='bus_sdk',
-    version=bus_sdk.__version__,
+    name='elife_bus_sdk',
+    version=elife_bus_sdk.__version__,
     description='SDK for the eLife Sciences bus - https://github.com/elifesciences/bus',
-    packages=['bus_sdk'],
+    packages=['elife_bus_sdk'],
     license='MIT',
     install_requires=install_requires,
     url='https://github.com/elifesciences/bus-sdk-python.git',

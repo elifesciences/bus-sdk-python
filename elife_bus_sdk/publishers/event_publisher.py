@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from bus_sdk.messages import Message
+from typing import Any
+
+from elife_bus_sdk.events import Event
 
 
 class EventPublisher(ABC):
@@ -9,5 +11,5 @@ class EventPublisher(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def publish(self, message: Message) -> str:
+    def publish(self, event: Event) -> Any:
         raise NotImplementedError

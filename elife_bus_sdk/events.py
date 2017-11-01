@@ -1,7 +1,7 @@
 import json
 
 
-class Message(dict):
+class Event(dict):
     """
     Subclass of the built in `dict` type which allows enforcement
     of required fields.
@@ -14,13 +14,13 @@ class Message(dict):
         Initialize as you would a normal `dict`.
 
         >>> data = {'id': 1234}
-        >>> msg = Message(**data)
+        >>> msg = Event(**data)
         >>> print(msg)
         {'id': 1234, 'type': 'base_msg'}"
 
         # or
 
-        >>> msg = Message(id=1234)
+        >>> msg = Event(id=1234)
         >>> print(msg)
         {'id': 1234, 'type': 'test_msg'}"
 
@@ -28,7 +28,7 @@ class Message(dict):
         :param kwargs:
         """
         kwargs['type'] = self._type
-        super(Message, self).__init__(*args, **kwargs)
+        super(Event, self).__init__(*args, **kwargs)
 
         for field in self.required_fields:
             if not self.get(field):
@@ -38,21 +38,21 @@ class Message(dict):
         return json.dumps(self)
 
 
-class ArticleMessage(Message):
+class ArticleEvent(Event):
     _type = 'article'
     required_fields = ['id']
 
 
-class CollectionMessage(Message):
+class CollectionEvent(Event):
     _type = 'collection'
     required_fields = ['id']
 
 
-class MetricMessage(Message):
+class MetricEvent(Event):
     _type = 'metrics'
     required_fields = ['contentType', 'id', 'metric']
 
 
-class ProfileMessage(Message):
+class ProfileEvent(Event):
     _type = 'profile'
     required_fields = ['id']

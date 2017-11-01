@@ -1,4 +1,4 @@
-from bus_sdk.publishers import get_publisher_types, SNSPublisher
+from elife_bus_sdk.publishers import get_publisher_types, SNSPublisher
 
 
 def test_it_will_have_valid_publisher_types_on_init():
