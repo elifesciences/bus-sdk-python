@@ -10,13 +10,13 @@ class SNSPublisher(EventPublisher):
     def __init__(self, region: str = '', subscriber: str = '', name: str = '',
                  env: str = '', **overrides) -> None:
         """
-        Allows publishcation of `Message` objects to a target AWs SNS Topic
+        Allows publication of `Message` objects to a target AWs SNS Topic
 
         :param region: str
         :param subscriber: str
         :param name: str
         :param env: str
-        :param overides: dict: Any boto3.resource override values that you would like to pass
+        :param overrides: dict: Any boto3.resource override values that you would like to pass
         """
         self._arn = self._create_arn(region, subscriber, name, env)
         self._resource = boto3.resource(self.name, **overrides)

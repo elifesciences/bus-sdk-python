@@ -5,7 +5,7 @@ import bus_sdk
 setup(
     name='bus_sdk',
     version=bus_sdk.__version__,
-    description='SDK for the eLife Sciences bus',
+    description='SDK for the eLife Sciences bus - https://github.com/elifesciences/bus',
     packages=['bus_sdk'],
     license='MIT',
     url='https://github.com/elifesciences/bus-sdk-python.git',
