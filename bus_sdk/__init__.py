@@ -7,11 +7,14 @@ from bus_sdk.publishers import (
 __version__ = '0.0.1'
 
 
+DEFAULT_NAME = 'default_publisher'
+DEFAULT_TYPE = 'sns'
 PUBLISHERS = {}
 PUBLISHER_TYPES = get_publisher_types()
 
 
-def get_publisher(pub_name: str, pub_type: str = '', config: dict = {}) -> EventPublisher:
+def get_publisher(pub_name: str = DEFAULT_NAME, pub_type: str = DEFAULT_TYPE,
+                  config: dict = {}) -> EventPublisher:
     """
     Publisher factory function.
 
