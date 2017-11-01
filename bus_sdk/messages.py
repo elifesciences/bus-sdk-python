@@ -53,11 +53,6 @@ class MetricMessage(Message):
     required_fields = ['contentType', 'id', 'metric']
 
 
-class PodcastEpisodeMessage(Message):
-    _type = 'podcast-episode'
-    required_fields = ['number']
-
-
 class ProfileMessage(Message):
     _type = 'profile'
     required_fields = ['id']

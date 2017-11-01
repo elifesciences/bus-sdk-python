@@ -29,7 +29,7 @@ def get_publisher(pub_name: str = DEFAULT_NAME, pub_type: str = DEFAULT_TYPE,
     """
     if not PUBLISHERS.get(pub_name, None):
         if not pub_type:
-            raise AttributeError('`pub_type` is a required argument for uninitialzed PUBLISHERS')
+            raise AttributeError('`pub_type` is a required argument for uninitialized PUBLISHERS')
 
         PUBLISHERS[pub_name] = PUBLISHER_TYPES[pub_type](**config)
 

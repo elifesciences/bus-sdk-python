@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from bus_sdk.messages import Message
 
 
 class EventPublisher(ABC):
@@ -8,5 +9,5 @@ class EventPublisher(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def publish(self, message: dict) -> str:
+    def publish(self, message: Message) -> str:
         raise NotImplementedError

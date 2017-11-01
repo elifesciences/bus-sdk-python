@@ -4,7 +4,6 @@ from bus_sdk.messages import (
     ArticleMessage,
     CollectionMessage,
     MetricMessage,
-    PodcastEpisodeMessage,
     ProfileMessage
 )
 
@@ -77,30 +76,5 @@ def test_metric_message_will_allow_additional_fields_on_init():
         'event': 'user_updated'
     }
     msg = MetricMessage(**valid_data)
-
-    assert msg['event'] == 'user_updated'
-
-
-def test_podcast_message_will_init_with_required_fields_populated():
-    assert PodcastEpisodeMessage(number=1234)
-
-
-def test_podcast_message_will_raise_exception_without_required_fields():
-    with pytest.raises(AttributeError):
-        PodcastEpisodeMessage()
-
-
-def test_podcast_message_can_be_converted_to_json():
-    msg = PodcastEpisodeMessage(number=1234)
-
-    assert isinstance(msg.to_json(), str)
-
-
-def test_podcast_message_will_allow_additional_fields_on_init():
-    valid_data = {
-        'number': 1234,
-        'event': 'user_updated'
-    }
-    msg = PodcastEpisodeMessage(**valid_data)
 
     assert msg['event'] == 'user_updated'
