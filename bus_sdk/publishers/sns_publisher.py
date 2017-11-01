@@ -1,4 +1,8 @@
-import boto3
+try:
+    import boto3
+except ModuleNotFoundError:
+    # boto3 not yet available, may happen in initial install of bus_sdk package
+    pass
 
 from bus_sdk.messages import Message
 from bus_sdk.publishers.event_publisher import EventPublisher
