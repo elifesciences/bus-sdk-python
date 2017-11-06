@@ -1,0 +1,6 @@
+[MESSAGE CONTROL]
+disable = abstract-method,dangerous-default-value,invalid-all-object,lost-exception,missing-docstring
+
+good-names = db,id
+function-rgx = [a-z_][a-z0-9_]{2,60}$
+method-rgx = [a-z_][a-z0-9_]{2,60}$
