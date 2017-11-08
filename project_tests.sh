@@ -10,6 +10,7 @@ fi
 source venv/bin/activate
 
 pip install --requirement requirements.txt
+pip install coveralls
 
 pylint --reports=n elife_bus_sdk
 flake8 elife_bus_sdk/ test/
