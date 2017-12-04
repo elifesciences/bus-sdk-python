@@ -14,6 +14,6 @@ pip install coveralls
 
 pylint --reports=n elife_bus_sdk
 flake8 elife_bus_sdk/ test/
-python -m pytest --junitxml=build/pytest.xml
+coverage run -m pytest --junitxml=build/pytest.xml
 
 COVERALLS_REPO_TOKEN=$(cat /etc/coveralls/tokens/elife-bus-sdk) coveralls
