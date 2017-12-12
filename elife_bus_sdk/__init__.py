@@ -4,7 +4,7 @@ from elife_bus_sdk.publishers import (
 )
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 DEFAULT_NAME = 'default_publisher'
@@ -13,8 +13,8 @@ PUBLISHERS = {}
 PUBLISHER_TYPES = get_publisher_types()
 
 
-def get_publisher(pub_name: str = DEFAULT_NAME, pub_type: str = DEFAULT_TYPE,
-                  config: dict = {}) -> EventPublisher:
+def get_publisher(config: dict, pub_name: str = DEFAULT_NAME,
+                  pub_type: str = DEFAULT_TYPE) -> EventPublisher:
     """
     Publisher factory function.
 
@@ -22,9 +22,9 @@ def get_publisher(pub_name: str = DEFAULT_NAME, pub_type: str = DEFAULT_TYPE,
     then you will be returned that instance, otherwise the publisher
     will be created and returned.
 
+    :param config: dict
     :param pub_name: str
     :param pub_type: str
-    :param config: dict
     :return: :class: `EventPublisher`
     """
     if not PUBLISHERS.get(pub_name, None):

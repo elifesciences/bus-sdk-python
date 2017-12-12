@@ -1,6 +1,6 @@
 try:
     import boto3
-except ImportError:
+except ImportError:  # pragma: no cover
     # boto3 not yet available, may happen in initial install of elife_bus_sdk package
     pass
 
