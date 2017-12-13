@@ -57,7 +57,7 @@ def test_metric_event_will_init_with_required_fields_populated():
     assert MetricEvent(contentType='someType', id='1234', metric='someMetric')
 
 
-def test_metric_event_will_raise_exception_without_required_fields():
+def test_metric_event_raises_exception_without_required_fields():
     with pytest.raises(AttributeError):
         MetricEvent()
 

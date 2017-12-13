@@ -8,8 +8,8 @@ class EventPublisher(ABC):
     @property
     @abstractmethod
     def name(self) -> str:
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def publish(self, event: Event) -> Any:
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover

@@ -14,8 +14,8 @@ def get_publisher_types() -> dict:
 
 
 __all__ = [
-    EventPublisher,
-    sns_publisher,
-    SNSPublisher,
-    get_publisher_types
+    'EventPublisher',
+    'sns_publisher',
+    'SNSPublisher',
+    'get_publisher_types'
 ]
