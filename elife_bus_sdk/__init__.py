@@ -4,7 +4,7 @@ from elife_bus_sdk.publishers import (
 )
 
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
 DEFAULT_NAME = 'default_publisher'

@@ -1,5 +1,35 @@
 # bus-sdk-python
 
-[![Build Status](https://alfred.elifesciences.org/buildStatus/icon?job=library-bus-sdk-python)](https://alfred.elifesciences.org/job/library-bus-sdk-python/) [![Build Status](https://travis-ci.org/elifesciences/bus-sdk-python.svg?branch=master)](https://travis-ci.org/elifesciences/bus-sdk-python) [![Coverage Status](https://coveralls.io/repos/github/elifesciences/bus-sdk-python/badge.svg?branch=add_travis_and_coveralls)](https://coveralls.io/github/elifesciences/bus-sdk-python?branch=add_travis_and_coveralls)
+[![Build Status](https://alfred.elifesciences.org/buildStatus/icon?job=library-bus-sdk-python)](https://alfred.elifesciences.org/job/library-bus-sdk-python/) [![Coverage Status](https://coveralls.io/repos/github/elifesciences/bus-sdk-python/badge.svg?branch=add_travis_and_coveralls)](https://coveralls.io/github/elifesciences/bus-sdk-python?branch=add_travis_and_coveralls)
 
-Python SDK for the eLife Sciences bus [in development]
+This library provides a Python SDK for the [eLife Sciences Bus](https://github.com/elifesciences/bus).
+    
+
+Dependencies
+------------
+
+* Python >=3.5
+
+Installation
+------------
+
+`pip install elife_bus_sdk`
+
+Publisher Usage
+---------------
+
+
+```python
+from elife_bus_sdk import get_publisher
+
+config = {
+    'region': 'us-east-2',
+    'subscriber': '00000000000',       
+    'name': 'profile',
+    'env': 'prod'
+}
+
+message = ProfileMessage(id='12345')
+publisher = get_publisher(pub_name='test', pub_type='sns', config=config)
+publisher.publish(message)
+```
