@@ -9,7 +9,7 @@ fi
 
 source venv/bin/activate
 
-pip install --requirement requirements.txt
+pip install -r requirements.txt
 pip install coveralls
 pip install proofreader==0.0.5
 
