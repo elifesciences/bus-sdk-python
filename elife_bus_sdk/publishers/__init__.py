@@ -1,3 +1,5 @@
+from typing import Dict
+
 from elife_bus_sdk.publishers.event_publisher import EventPublisher
 from elife_bus_sdk.publishers import sns_publisher
 from elife_bus_sdk.publishers.sns_publisher import SNSPublisher
@@ -9,7 +11,7 @@ PUBLISHERS = [
 ]
 
 
-def get_publisher_types() -> dict:
+def get_publisher_types() -> Dict[str, EventPublisher]:
     return {pub.name: pub for pub in PUBLISHERS}
 
 

@@ -1,12 +1,13 @@
 import pytest
 
 from elife_bus_sdk import get_publisher
+from elife_bus_sdk.exceptions import PublisherTypeNotFound
 from elife_bus_sdk.publishers import get_publisher_types, SNSPublisher
 
 
 def test_it_raises_exception_for_unitialized_publisher_type():
-    with pytest.raises(AttributeError):
-        get_publisher(pub_name='some_invalid_name', pub_type='', config={})
+    with pytest.raises(PublisherTypeNotFound):
+        get_publisher(pub_type='', config={})
 
 
 def test_it_will_have_valid_publisher_types_on_init():

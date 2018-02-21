@@ -1,3 +1,5 @@
+from typing import Dict
+
 try:
     import boto3
 except ImportError:  # pragma: no cover
@@ -43,7 +45,7 @@ class SNSPublisher(EventPublisher):
                                                                         name=name,
                                                                         env=env)
 
-    def publish(self, event: Event) -> dict:
+    def publish(self, event: Event) -> Dict:
         """
         Publishes a JSON representation of `Event` object to the target AWS SNS Topic.
 
