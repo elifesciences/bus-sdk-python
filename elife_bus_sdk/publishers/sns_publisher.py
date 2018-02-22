@@ -1,10 +1,6 @@
 from typing import Dict
 
-try:
-    import boto3
-except ImportError:  # pragma: no cover
-    # boto3 not yet available, may happen in initial install of elife_bus_sdk package
-    pass
+import boto3
 
 from elife_bus_sdk.events import Event
 from elife_bus_sdk.publishers.event_publisher import EventPublisher

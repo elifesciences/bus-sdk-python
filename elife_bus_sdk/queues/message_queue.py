@@ -19,7 +19,7 @@ class MessageQueue(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def poll(self, parse_msg: bool) -> Generator[Dict, None, None]:
+    def poll(self) -> Generator[Dict, None, None]:
         raise NotImplementedError  # pragma: no cover
 
     @property

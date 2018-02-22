@@ -1,11 +1,8 @@
 from typing import Dict, Generator, List
 
-try:
-    import boto3
-except ImportError:  # pragma: no cover
-    # boto3 not yet available, may happen in initial install of elife_bus_sdk package
-    pass
+import boto3
 
+from elife_bus_sdk.events import Event
 from elife_bus_sdk.queues.message_queue import MessageQueue
 
 
@@ -45,7 +42,7 @@ class SQSMessageQueue(MessageQueue):
         return self._queue.send_message(MessageBody=message)
 
     @staticmethod
-    def parse_message(message: 'sqs.Message') -> Dict[str, str]:
+    def _parse_message(message: 'sqs.Message') -> Dict[str, str]:
         """Parse a `sqs.Message` object and return a `dict` representation.
 
         :param message: :class: sqs.Message
@@ -59,14 +56,11 @@ class SQSMessageQueue(MessageQueue):
             'receipt_handle': message.receipt_handle
         }
 
-    def poll(self, parse_msg: bool = True) -> Generator[Dict, None, None]:
+    def poll(self) -> Generator[Event, None, None]:
         """An infinite poll on the given queue object.
 
         Blocks for `WaitTimeSeconds` seconds before connection is dropped and re-established.
 
-        If `parse_msg` is False, then you will be returned the the original `sqs.Message` object.
-
-        :param parse_msg: bool
         :return: generator
         """
         while True:
@@ -81,12 +75,9 @@ class SQSMessageQueue(MessageQueue):
             message = messages[0]
 
             try:
-                if parse_msg:
-                    yield self.parse_message(message)
-                else:
-                    yield message
+                yield Event(**self._parse_message(message))
             except AttributeError:
-                yield {}
+                yield None
             finally:
                 message.delete()
 
