@@ -15,6 +15,11 @@ Installation
 
 `pip install elife_bus_sdk`
 
+AWS Credentials
+---------------
+To use any of the AWS provided services through this library, you will need to provide credentials in a way that is supported [here.](http://boto3.readthedocs.io/en/latest/guide/configuration.html) 
+
+
 Publisher
 ---------
 
