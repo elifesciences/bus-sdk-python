@@ -65,7 +65,7 @@ Configuration:
 from elife_bus_sdk import get_queue
 
 config = {   
-    'QueueName': 'some_queue',
+    'queue_name': 'some_queue',
 }
 
 message_queue = get_queue(config=config, pub_type='sqs')
@@ -98,7 +98,7 @@ from elife_bus_sdk import get_queue
 
 dev_config = {
     'endpoint_url': 'http://localhost:4100',
-    'QueueName': 'test1',
+    'queue_name': 'test1',
 }
 
 message_queue = get_queue(config=dev_config, q_type='sqs')

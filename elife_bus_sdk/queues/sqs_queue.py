@@ -13,7 +13,7 @@ class SQSMessageQueue(MessageQueue):
     name = 'sqs'
 
     def __init__(self, **overrides):
-        self._queue_name = overrides.pop('QueueName', None)
+        self._queue_name = overrides.pop('queue_name', None)
         self._overrides = overrides
         self._resource = boto3.resource(self.name, **self._overrides)
         self._queue = self._resource.get_queue_by_name(QueueName=self._queue_name)

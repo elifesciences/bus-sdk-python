@@ -67,5 +67,5 @@ def valid_config() -> Dict[str, str]:
 @fixture
 def valid_sqs_config() -> Dict[str, str]:
     return {
-        'QueueName': 'test7',
+        'queue_name': 'test7',
     }
