@@ -21,6 +21,13 @@ def invalid_config() -> Dict[str, str]:
 
 
 @fixture
+def mock_sqs_queue(sqs_message: NamedTuple) -> MagicMock:
+    mock_queue = MagicMock()
+    mock_queue.receive_messages.return_value = [sqs_message]
+    return mock_queue
+
+
+@fixture
 def sqs_message() -> NamedTuple:
     fields = ['body',
               'md5_of_body',
@@ -50,7 +57,9 @@ def sns_publisher(mock_boto: MagicMock, dev_config_overrides: Dict[str, str],
 @fixture
 @patch('elife_bus_sdk.queues.sqs_queue.boto3')
 # pylint:disable=unused-argument
-def sqs_message_queue(mock_boto: MagicMock, valid_sqs_config: Dict[str, str]):
+def sqs_message_queue(mock_boto: MagicMock, mock_sqs_queue,
+                      valid_sqs_config: Dict[str, str]):
+    mock_boto.resource.return_value.get_queue_by_name.return_value = mock_sqs_queue
     return SQSMessageQueue(**valid_sqs_config)
 
 
