@@ -77,6 +77,16 @@ for msg in message_queue.poll():
     print(msg)
 ```
 
+Check if a queue is polling:
+```python
+message_queue.is_polling()
+```
+
+Stop a queue from polling (normally running in another thread):
+```python
+message_queue.stop_polling()
+```
+
 Receive message(s):
 ```python
 msg = message_queue.dequeue()
