@@ -1,8 +1,6 @@
-try:
-    import boto3
-except ImportError:  # pragma: no cover
-    # boto3 not yet available, may happen in initial install of elife_bus_sdk package
-    pass
+from typing import Dict
+
+import boto3
 
 from elife_bus_sdk.events import Event
 from elife_bus_sdk.publishers.event_publisher import EventPublisher
@@ -43,7 +41,7 @@ class SNSPublisher(EventPublisher):
                                                                         name=name,
                                                                         env=env)
 
-    def publish(self, event: Event) -> dict:
+    def publish(self, event: Event) -> Dict:
         """
         Publishes a JSON representation of `Event` object to the target AWS SNS Topic.
 
