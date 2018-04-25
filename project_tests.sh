@@ -10,8 +10,7 @@ fi
 source venv/bin/activate
 
 pip install -r requirements.txt
-pip install coveralls
-pip install proofreader==0.0.5
+pip install -r requirements-dev.txt
 
 python -m proofreader elife_bus_sdk/ test/
 
