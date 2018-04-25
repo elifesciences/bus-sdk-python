@@ -3,7 +3,7 @@ from elife_bus_sdk.publishers import EventPublisher, get_publisher_types
 from elife_bus_sdk.queues import MessageQueue, get_queue_types
 
 
-__version__ = '0.0.4'
+__version__ = '0.0.6'
 
 
 DEFAULT_PUB_TYPE = 'sns'
