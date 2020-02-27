@@ -3,18 +3,6 @@ from setuptools import setup
 import elife_bus_sdk
 
 
-DEFAULT_DEPENDENCIES = (
-    'boto3==1.4.7',
-)
-
-
-try:
-    with open('requirements.txt') as requirements_file:
-        DEPENDENCIES = requirements_file.readlines()
-except FileNotFoundError:
-    DEPENDENCIES = DEFAULT_DEPENDENCIES
-
-
 setup(
     name='elife_bus_sdk',
     version=elife_bus_sdk.__version__,
@@ -23,7 +11,9 @@ setup(
               'elife_bus_sdk.publishers',
               'elife_bus_sdk.queues'],
     include_package_data=True,
-    install_requires=DEPENDENCIES,
+    install_requires=[
+        "boto3>=1.4.7",
+    ],
     license='MIT',
     url='https://github.com/elifesciences/bus-sdk-python.git',
     maintainer='eLife Sciences Publications Ltd.',
