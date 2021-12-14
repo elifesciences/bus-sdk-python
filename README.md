@@ -1,6 +1,6 @@
 # bus-sdk-python
 
-[![Build Status](https://alfred.elifesciences.org/buildStatus/icon?job=library-bus-sdk-python)](https://alfred.elifesciences.org/job/library-bus-sdk-python/) [![Coverage Status](https://coveralls.io/repos/github/elifesciences/bus-sdk-python/badge.svg?branch=HEAD)](https://coveralls.io/github/elifesciences/bus-sdk-python?branch=HEAD)
+[![Build Status](https://alfred.elifesciences.org/buildStatus/icon?job=library-bus-sdk-python)](https://alfred.elifesciences.org/job/library-bus-sdk-python/)
 
 This library provides a Python SDK for the [eLife Sciences Bus](https://github.com/elifesciences/bus).
     

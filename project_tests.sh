@@ -13,5 +13,3 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
 coverage run -m pytest --junitxml=build/pytest.xml
-
-COVERALLS_REPO_TOKEN=$(cat /etc/coveralls/tokens/elife-bus-sdk) coveralls
